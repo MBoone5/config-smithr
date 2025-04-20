@@ -1,6 +1,6 @@
 # config-smithr
 
-![smithr logo](./logo.svg)
+<h3 align="center"><img src="./logo.svg" alt="smithr-logo"><br>Config SmithR</h3>
 
 **config-smithr** is a work-in-progress (WIP) CLI tool, written in Rust, for managing, syncing, and deploying your personal configuration files (dotfiles) across multiple machines.
 
