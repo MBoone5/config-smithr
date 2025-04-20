@@ -24,7 +24,7 @@ struct Settings {
     repo: Repository,
 }
 
-struct ForgeState {
+struct SmithrState {
     file_set: ConfigSet,
     user_settings: Settings,
 }
