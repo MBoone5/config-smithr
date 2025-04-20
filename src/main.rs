@@ -10,15 +10,21 @@ struct Forge {
 
 // TODO: Figure out how to unwrap `open_bare` into repo.namespace() to get repo name
 fn check_repo(path: PathBuf) {
-    let repo_result = Repository::open_bare(path);
-    let repo = match repo_result {
+    let repo = match Repository::open(path) {
         Ok(repo) => repo,
-        Err(error) => {
-            panic!("nah nah nah nah: {}", error);
-        }
+        Err(e) => panic!("failed to open: {}", e),
     };
 
-    println!("{}", repo.is_bare());
+    let repo_name = repo.path()
+        .file_name()
+        .and_then(|repo_os_str| repo_os_str.to_str());
+
+    println!("Bare repo? = {}", repo.is_bare());
+
+    match repo_name {
+        None => println!("Repo name not found, check filesystem"),
+        Some(name) => println!("Repo name? = {}", name)
+    }
 }
 
 fn main() {
