@@ -15,7 +15,8 @@ fn check_repo(path: PathBuf) {
         Err(e) => panic!("failed to open: {}", e),
     };
 
-    let repo_name = repo.path()
+    let repo_name = repo
+        .path()
         .file_name()
         .and_then(|repo_os_str| repo_os_str.to_str());
 
@@ -23,7 +24,7 @@ fn check_repo(path: PathBuf) {
 
     match repo_name {
         None => println!("Repo name not found, check filesystem"),
-        Some(name) => println!("Repo name? = {}", name)
+        Some(name) => println!("Repo name? = {}", name),
     }
 }
 
